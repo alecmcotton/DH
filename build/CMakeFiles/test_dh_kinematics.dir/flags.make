@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/usr/include/eigen3 -I/home/thegovernment/git/DH/include
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -fPIE
+CXX_FLAGS = -std=gnu++17 -fPIE
 

@@ -6,5 +6,5 @@ CXX_DEFINES = -Ddh_kinematics_pybind_EXPORTS
 
 CXX_INCLUDES = -I/usr/include/eigen3 -I/home/thegovernment/git/DH/include -isystem /usr/include/python3.12
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects
+CXX_FLAGS = -std=gnu++17 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects
 

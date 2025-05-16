@@ -22,7 +22,7 @@ def run_python_tests():
         
         num_joints = kin.get_num_joints()
         if num_joints == 0:
-            continue  # Skip if no actuated joints
+            continue  # this is shady
             
         for j in range(NUM_TESTS_PER_TABLE):
             joint_values = np.random.uniform(-np.pi, np.pi, num_joints)
