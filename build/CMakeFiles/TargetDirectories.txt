@@ -1,0 +1,4 @@
+/home/thegovernment/git/DH/build/CMakeFiles/kinematics.dir
+/home/thegovernment/git/DH/build/CMakeFiles/kinematics_test.dir
+/home/thegovernment/git/DH/build/CMakeFiles/edit_cache.dir
+/home/thegovernment/git/DH/build/CMakeFiles/rebuild_cache.dir

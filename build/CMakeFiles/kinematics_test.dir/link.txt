@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/kinematics_test.dir/test/main.cpp.o -o kinematics_test  libkinematics.a 
