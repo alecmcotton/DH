@@ -117,78 +117,115 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named kinematics
+# Target rules for targets named dh_kinematics
 
 # Build rule for target.
-kinematics: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kinematics
-.PHONY : kinematics
+dh_kinematics: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dh_kinematics
+.PHONY : dh_kinematics
 
 # fast build rule for target.
-kinematics/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/build
-.PHONY : kinematics/fast
+dh_kinematics/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/build
+.PHONY : dh_kinematics/fast
 
 #=============================================================================
-# Target rules for targets named kinematics_test
+# Target rules for targets named dh_kinematics_pybind
 
 # Build rule for target.
-kinematics_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kinematics_test
-.PHONY : kinematics_test
+dh_kinematics_pybind: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dh_kinematics_pybind
+.PHONY : dh_kinematics_pybind
 
 # fast build rule for target.
-kinematics_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/build
-.PHONY : kinematics_test/fast
+dh_kinematics_pybind/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/build
+.PHONY : dh_kinematics_pybind/fast
 
-src/kinematics.o: src/kinematics.cpp.o
-.PHONY : src/kinematics.o
+#=============================================================================
+# Target rules for targets named test_dh_kinematics
 
-# target to build an object file
-src/kinematics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/src/kinematics.cpp.o
-.PHONY : src/kinematics.cpp.o
+# Build rule for target.
+test_dh_kinematics: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_dh_kinematics
+.PHONY : test_dh_kinematics
 
-src/kinematics.i: src/kinematics.cpp.i
-.PHONY : src/kinematics.i
+# fast build rule for target.
+test_dh_kinematics/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/build
+.PHONY : test_dh_kinematics/fast
 
-# target to preprocess a source file
-src/kinematics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/src/kinematics.cpp.i
-.PHONY : src/kinematics.cpp.i
-
-src/kinematics.s: src/kinematics.cpp.s
-.PHONY : src/kinematics.s
-
-# target to generate assembly for a file
-src/kinematics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/src/kinematics.cpp.s
-.PHONY : src/kinematics.cpp.s
-
-test/main.o: test/main.cpp.o
-.PHONY : test/main.o
+src/dh_kinematics.o: src/dh_kinematics.cpp.o
+.PHONY : src/dh_kinematics.o
 
 # target to build an object file
-test/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/test/main.cpp.o
-.PHONY : test/main.cpp.o
+src/dh_kinematics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/src/dh_kinematics.cpp.o
+.PHONY : src/dh_kinematics.cpp.o
 
-test/main.i: test/main.cpp.i
-.PHONY : test/main.i
+src/dh_kinematics.i: src/dh_kinematics.cpp.i
+.PHONY : src/dh_kinematics.i
 
 # target to preprocess a source file
-test/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/test/main.cpp.i
-.PHONY : test/main.cpp.i
+src/dh_kinematics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/src/dh_kinematics.cpp.i
+.PHONY : src/dh_kinematics.cpp.i
 
-test/main.s: test/main.cpp.s
-.PHONY : test/main.s
+src/dh_kinematics.s: src/dh_kinematics.cpp.s
+.PHONY : src/dh_kinematics.s
 
 # target to generate assembly for a file
-test/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/test/main.cpp.s
-.PHONY : test/main.cpp.s
+src/dh_kinematics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/src/dh_kinematics.cpp.s
+.PHONY : src/dh_kinematics.cpp.s
+
+src/pybind_wrapper.o: src/pybind_wrapper.cpp.o
+.PHONY : src/pybind_wrapper.o
+
+# target to build an object file
+src/pybind_wrapper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/src/pybind_wrapper.cpp.o
+.PHONY : src/pybind_wrapper.cpp.o
+
+src/pybind_wrapper.i: src/pybind_wrapper.cpp.i
+.PHONY : src/pybind_wrapper.i
+
+# target to preprocess a source file
+src/pybind_wrapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/src/pybind_wrapper.cpp.i
+.PHONY : src/pybind_wrapper.cpp.i
+
+src/pybind_wrapper.s: src/pybind_wrapper.cpp.s
+.PHONY : src/pybind_wrapper.s
+
+# target to generate assembly for a file
+src/pybind_wrapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/src/pybind_wrapper.cpp.s
+.PHONY : src/pybind_wrapper.cpp.s
+
+tests/test_dh_kinematics.o: tests/test_dh_kinematics.cpp.o
+.PHONY : tests/test_dh_kinematics.o
+
+# target to build an object file
+tests/test_dh_kinematics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/tests/test_dh_kinematics.cpp.o
+.PHONY : tests/test_dh_kinematics.cpp.o
+
+tests/test_dh_kinematics.i: tests/test_dh_kinematics.cpp.i
+.PHONY : tests/test_dh_kinematics.i
+
+# target to preprocess a source file
+tests/test_dh_kinematics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/tests/test_dh_kinematics.cpp.i
+.PHONY : tests/test_dh_kinematics.cpp.i
+
+tests/test_dh_kinematics.s: tests/test_dh_kinematics.cpp.s
+.PHONY : tests/test_dh_kinematics.s
+
+# target to generate assembly for a file
+tests/test_dh_kinematics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/tests/test_dh_kinematics.cpp.s
+.PHONY : tests/test_dh_kinematics.cpp.s
 
 # Help Target
 help:
@@ -198,14 +235,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... kinematics"
-	@echo "... kinematics_test"
-	@echo "... src/kinematics.o"
-	@echo "... src/kinematics.i"
-	@echo "... src/kinematics.s"
-	@echo "... test/main.o"
-	@echo "... test/main.i"
-	@echo "... test/main.s"
+	@echo "... dh_kinematics"
+	@echo "... dh_kinematics_pybind"
+	@echo "... test_dh_kinematics"
+	@echo "... src/dh_kinematics.o"
+	@echo "... src/dh_kinematics.i"
+	@echo "... src/dh_kinematics.s"
+	@echo "... src/pybind_wrapper.o"
+	@echo "... src/pybind_wrapper.i"
+	@echo "... src/pybind_wrapper.s"
+	@echo "... tests/test_dh_kinematics.o"
+	@echo "... tests/test_dh_kinematics.i"
+	@echo "... tests/test_dh_kinematics.s"
 .PHONY : help
 
 

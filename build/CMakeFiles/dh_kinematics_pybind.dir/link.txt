@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG -flto -shared  -o dh_kinematics_pybind.cpython-312-x86_64-linux-gnu.so CMakeFiles/dh_kinematics_pybind.dir/src/pybind_wrapper.cpp.o  libdh_kinematics.a 

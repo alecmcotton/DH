@@ -63,8 +63,9 @@ CMAKE_BINARY_DIR = /home/thegovernment/git/DH/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/kinematics.dir/all
-all: CMakeFiles/kinematics_test.dir/all
+all: CMakeFiles/dh_kinematics.dir/all
+all: CMakeFiles/dh_kinematics_pybind.dir/all
+all: CMakeFiles/test_dh_kinematics.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +73,88 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/kinematics.dir/clean
-clean: CMakeFiles/kinematics_test.dir/clean
+clean: CMakeFiles/dh_kinematics.dir/clean
+clean: CMakeFiles/dh_kinematics_pybind.dir/clean
+clean: CMakeFiles/test_dh_kinematics.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/kinematics.dir
+# Target rules for target CMakeFiles/dh_kinematics.dir
 
 # All Build rule for target.
-CMakeFiles/kinematics.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/thegovernment/git/DH/build/CMakeFiles --progress-num=1,2 "Built target kinematics"
-.PHONY : CMakeFiles/kinematics.dir/all
+CMakeFiles/dh_kinematics.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/thegovernment/git/DH/build/CMakeFiles --progress-num=1,2 "Built target dh_kinematics"
+.PHONY : CMakeFiles/dh_kinematics.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/kinematics.dir/rule: cmake_check_build_system
+CMakeFiles/dh_kinematics.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thegovernment/git/DH/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/kinematics.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dh_kinematics.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thegovernment/git/DH/build/CMakeFiles 0
-.PHONY : CMakeFiles/kinematics.dir/rule
+.PHONY : CMakeFiles/dh_kinematics.dir/rule
 
 # Convenience name for target.
-kinematics: CMakeFiles/kinematics.dir/rule
-.PHONY : kinematics
+dh_kinematics: CMakeFiles/dh_kinematics.dir/rule
+.PHONY : dh_kinematics
 
 # clean rule for target.
-CMakeFiles/kinematics.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics.dir/build.make CMakeFiles/kinematics.dir/clean
-.PHONY : CMakeFiles/kinematics.dir/clean
+CMakeFiles/dh_kinematics.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics.dir/build.make CMakeFiles/dh_kinematics.dir/clean
+.PHONY : CMakeFiles/dh_kinematics.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/kinematics_test.dir
+# Target rules for target CMakeFiles/dh_kinematics_pybind.dir
 
 # All Build rule for target.
-CMakeFiles/kinematics_test.dir/all: CMakeFiles/kinematics.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/thegovernment/git/DH/build/CMakeFiles --progress-num=3,4 "Built target kinematics_test"
-.PHONY : CMakeFiles/kinematics_test.dir/all
+CMakeFiles/dh_kinematics_pybind.dir/all: CMakeFiles/dh_kinematics.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/thegovernment/git/DH/build/CMakeFiles --progress-num=3,4 "Built target dh_kinematics_pybind"
+.PHONY : CMakeFiles/dh_kinematics_pybind.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/kinematics_test.dir/rule: cmake_check_build_system
+CMakeFiles/dh_kinematics_pybind.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thegovernment/git/DH/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/kinematics_test.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dh_kinematics_pybind.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thegovernment/git/DH/build/CMakeFiles 0
-.PHONY : CMakeFiles/kinematics_test.dir/rule
+.PHONY : CMakeFiles/dh_kinematics_pybind.dir/rule
 
 # Convenience name for target.
-kinematics_test: CMakeFiles/kinematics_test.dir/rule
-.PHONY : kinematics_test
+dh_kinematics_pybind: CMakeFiles/dh_kinematics_pybind.dir/rule
+.PHONY : dh_kinematics_pybind
 
 # clean rule for target.
-CMakeFiles/kinematics_test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinematics_test.dir/build.make CMakeFiles/kinematics_test.dir/clean
-.PHONY : CMakeFiles/kinematics_test.dir/clean
+CMakeFiles/dh_kinematics_pybind.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dh_kinematics_pybind.dir/build.make CMakeFiles/dh_kinematics_pybind.dir/clean
+.PHONY : CMakeFiles/dh_kinematics_pybind.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_dh_kinematics.dir
+
+# All Build rule for target.
+CMakeFiles/test_dh_kinematics.dir/all: CMakeFiles/dh_kinematics.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/thegovernment/git/DH/build/CMakeFiles --progress-num=5,6 "Built target test_dh_kinematics"
+.PHONY : CMakeFiles/test_dh_kinematics.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_dh_kinematics.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thegovernment/git/DH/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_dh_kinematics.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thegovernment/git/DH/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_dh_kinematics.dir/rule
+
+# Convenience name for target.
+test_dh_kinematics: CMakeFiles/test_dh_kinematics.dir/rule
+.PHONY : test_dh_kinematics
+
+# clean rule for target.
+CMakeFiles/test_dh_kinematics.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dh_kinematics.dir/build.make CMakeFiles/test_dh_kinematics.dir/clean
+.PHONY : CMakeFiles/test_dh_kinematics.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

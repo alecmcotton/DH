@@ -22,7 +22,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=kinematics
+CMAKE_PROJECT_NAME:STATIC=dh_kinematics
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -218,14 +218,30 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //The directory containing a CMake configuration file for Eigen3.
 Eigen3_DIR:PATH=/usr/share/eigen3/cmake
 
-//Value Computed by CMake
-kinematics_BINARY_DIR:STATIC=/home/thegovernment/git/DH/build
+//Overwrite cached values read from Python library (classic search).
+// Turn off if cross-compiling and manually setting these values.
+PYBIND11_PYTHONLIBS_OVERWRITE:BOOL=ON
+
+//Python version to use for compiling modules
+PYBIND11_PYTHON_VERSION:STRING=
+
+//Path to a program.
+PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
+
+//Path to a library.
+PYTHON_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.12.so
 
 //Value Computed by CMake
-kinematics_IS_TOP_LEVEL:STATIC=ON
+dh_kinematics_BINARY_DIR:STATIC=/home/thegovernment/git/DH/build
 
 //Value Computed by CMake
-kinematics_SOURCE_DIR:STATIC=/home/thegovernment/git/DH
+dh_kinematics_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+dh_kinematics_SOURCE_DIR:STATIC=/home/thegovernment/git/DH
+
+//The directory containing a CMake configuration file for pybind11.
+pybind11_DIR:PATH=/usr/lib/cmake/pybind11
 
 
 ########################
@@ -377,6 +393,28 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding PYTHON
+FIND_PACKAGE_MESSAGE_DETAILS_PYTHON:INTERNAL=/usr/bin/python33.12.3
+//Details about finding PythonInterp
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.12.3(3.6)]
+//Test HAS_FLTO
+HAS_FLTO:INTERNAL=1
+//ADVANCED property for variable: PYTHON_EXECUTABLE
+PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
+PYTHON_INCLUDE_DIRS:INTERNAL=/usr/include/python3.12
+PYTHON_IS_DEBUG:INTERNAL=0
+PYTHON_LIBRARIES:INTERNAL=/usr/lib/x86_64-linux-gnu/libpython3.12.so
+//ADVANCED property for variable: PYTHON_LIBRARY
+PYTHON_LIBRARY-ADVANCED:INTERNAL=1
+PYTHON_MODULE_EXTENSION:INTERNAL=.cpython-312-x86_64-linux-gnu.so
+PYTHON_MODULE_PREFIX:INTERNAL=
+PYTHON_VERSION:INTERNAL=3.12.3
+PYTHON_VERSION_MAJOR:INTERNAL=3
+PYTHON_VERSION_MINOR:INTERNAL=12
+Python_ADDITIONAL_VERSIONS:INTERNAL=3.11;3.10;3.9;3.8;3.7;3.6
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+_Python:INTERNAL=PYTHON
+//Directories where pybind11 and possibly Python headers are located
+pybind11_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/python3.12
 
