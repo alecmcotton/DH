@@ -7,27 +7,31 @@ namespace py = pybind11;
 using namespace dh_kinematics;
 
 PYBIND11_MODULE(dh_kinematics, m) {
-    py::enum_<dh_kinematics::JointType>(m, "JointType")
-        .value("CONSTANT", dh_kinematics::JointType::CONSTANT)
-        .value("REVOLUTE", dh_kinematics::JointType::REVOLUTE)
-        .value("PRISMATIC", dh_kinematics::JointType::PRISMATIC);
+    py::enum_<JointType>(m, "JointType")
+        .value("CONSTANT", JointType::CONSTANT)
+        .value("REVOLUTE", JointType::REVOLUTE)
+        .value("PRISMATIC", JointType::PRISMATIC);
     
-    py::class_<dh_kinematics::DHParameters>(m, "DHParameters")
-        .def_readwrite("a", &dh_kinematics::DHParameters::a)
-        .def_readwrite("alpha", &dh_kinematics::DHParameters::alpha)
-        .def_readwrite("d", &dh_kinematics::DHParameters::d)
-        .def_readwrite("theta", &dh_kinematics::DHParameters::theta)
-        .def_readwrite("type", &dh_kinematics::DHParameters::type);
+    py::class_<DHParameters>(m, "DHParameters")
+        .def_readwrite("a", &DHParameters::a)
+        .def_readwrite("alpha", &DHParameters::alpha)
+        .def_readwrite("d", &DHParameters::d)
+        .def_readwrite("theta", &DHParameters::theta)
+        .def_readwrite("type", &DHParameters::type);
     
-    py::class_<dh_kinematics::DHKinematics>(m, "DHKinematics")
+    py::class_<DHKinematics>(m, "DHKinematics")
         .def(py::init<>())
-        .def("load_from_csv", &dh_kinematics::DHKinematics::loadFromCSV)
-        .def("set_dh_parameters", &dh_kinematics::DHKinematics::setDHParameters)
-        .def("forward", &dh_kinematics::DHKinematics::forward)
-        .def("inverse", &dh_kinematics::DHKinematics::inverse)
-        .def("jacobian", &dh_kinematics::DHKinematics::jacobian)
-        .def("get_num_actuated_joints", &dh_kinematics::DHKinematics::getNumActuatedJoints)
-        .def("get_dh_parameters", &dh_kinematics::DHKinematics::getDHParameters);
-    
-    m.def("generate_random_dh_parameters", &dh_kinematics::generateRandomDHParameters);
+        .def("load_from_csv", &DHKinematics::loadFromCSV)
+        .def("set_dh_parameters", &DHKinematics::setDHParameters)
+        .def("forward", &DHKinematics::forward)
+        .def("inverse", &DHKinematics::inverse)
+        .def("jacobian", &DHKinematics::jacobian)
+        .def("get_num_actuated_joints", &DHKinematics::getNumActuatedJoints)
+        .def("get_dh_parameters", &DHKinematics::getDHParameters)
+        .def_static("compute_flange_pose_from_constraint", &DHKinematics::computeFlangePoseFromConstraint,
+            py::arg("constraint_point"),
+            py::arg("tool_tip_position"),
+            py::arg("tool_length"),
+            py::arg("tool_axis") = "z");
+    m.def("generate_random_dh_parameters", &generateRandomDHParameters);
 }

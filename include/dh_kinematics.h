@@ -34,6 +34,12 @@ public:
     int getNumActuatedJoints() const;
     const std::vector<DHParameters>& getDHParameters() const;
 
+    static Eigen::Matrix4d computeFlangePoseFromConstraint(
+        const Eigen::Vector3d& constraint_point,
+        const Eigen::Vector3d& tool_tip_position,
+        double tool_length,
+        const std::string& tool_axis = "z");
+
 private:
     std::vector<DHParameters> dh_params_;
     
@@ -46,4 +52,4 @@ Eigen::Vector3d rotationMatrixToEulerAngles(const Eigen::Matrix3d& R);
 Eigen::Matrix3d eulerAnglesToRotationMatrix(const Eigen::Vector3d& euler);
 std::vector<DHParameters> generateRandomDHParameters(int num_links);
 
-}
+} // namespace dh_kinematics

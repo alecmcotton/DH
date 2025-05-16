@@ -88,14 +88,10 @@ VectorXd DHKinematics::inverse(const VectorXd& target_pose,
         VectorXd error = target_pose - current_pose;
         double current_error = error.norm();
         
-        if (current_error < tolerance) {
-            return q;
-        }
-        
+        if (current_error < tolerance) return q;
         if (current_error > prev_error * 1.5 && iter > 5) {
             throw std::runtime_error("IK is diverging");
         }
-        
         if (iter > 10 && (q - prev_q).norm() < tolerance * 0.1) {
             throw std::runtime_error("IK is oscillating");
         }
@@ -106,8 +102,7 @@ VectorXd DHKinematics::inverse(const VectorXd& target_pose,
         prev_error = current_error;
     }
     
-    throw std::runtime_error("IK failed to converge in " + 
-                           std::to_string(max_iterations) + " iterations");
+    throw std::runtime_error("IK failed to converge");
 }
 
 MatrixXd DHKinematics::jacobian(const VectorXd& joint_values, double delta) const {
@@ -205,4 +200,49 @@ std::vector<DHParameters> generateRandomDHParameters(int num_links) {
     return params;
 }
 
+Eigen::Matrix4d DHKinematics::computeFlangePoseFromConstraint(
+    const Eigen::Vector3d& constraint_point,
+    const Eigen::Vector3d& tool_tip_position,
+    double tool_length,
+    const std::string& tool_axis) 
+{
+    using namespace Eigen;
+    
+    if (tool_length <= 0) throw std::runtime_error("Tool length must be positive");
+    Vector3d dir = (tool_tip_position - constraint_point).normalized();
+    if (dir.norm() < 1e-6) throw std::runtime_error("Constraint and tip are coincident");
+
+    Vector3d flange_position = tool_tip_position - tool_length * dir;
+    Matrix3d R;
+
+    if (tool_axis == "z") {
+        Vector3d z_axis = dir;
+        Vector3d x_axis = Vector3d::UnitZ().cross(z_axis).normalized();
+        if (x_axis.norm() < 1e-6) x_axis = Vector3d::UnitX();
+        Vector3d y_axis = z_axis.cross(x_axis).normalized();
+        
+        R.col(0) = x_axis;
+        R.col(1) = y_axis;
+        R.col(2) = z_axis;
+    }
+    else if (tool_axis == "x") {
+        Vector3d x_axis = dir;
+        Vector3d y_axis = x_axis.cross(Vector3d::UnitZ()).normalized();
+        if (y_axis.norm() < 1e-6) y_axis = Vector3d::UnitY();
+        Vector3d z_axis = x_axis.cross(y_axis).normalized();
+        
+        R.col(0) = x_axis;
+        R.col(1) = y_axis;
+        R.col(2) = z_axis;
+    }
+    else {
+        throw std::runtime_error("Invalid tool axis, must be 'x' or 'z'");
+    }
+
+    Matrix4d flange_pose = Matrix4d::Identity();
+    flange_pose.block<3,3>(0,0) = R;
+    flange_pose.block<3,1>(0,3) = flange_position;
+    return flange_pose;
 }
+
+} // namespace dh_kinematics
