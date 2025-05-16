@@ -29,7 +29,7 @@ void runTests() {
         kin.setDHParameters(dh_params);
         
         int num_joints = kin.getNumJoints();
-        if (num_joints == 0) continue; // Skip if no actuated joints
+        if (num_joints == 0) continue;
         
         uniform_real_distribution<double> joint_dist(-M_PI, M_PI);
         

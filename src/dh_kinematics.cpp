@@ -26,7 +26,6 @@ bool DHKinematics::loadFromCSV(const std::string& filename) {
         std::string cell;
         DHParameters params;
         
-        // Parse a, alpha, d, theta
         std::getline(ss, cell, ',');
         params.a = std::stod(cell);
         std::getline(ss, cell, ',');
@@ -36,7 +35,6 @@ bool DHKinematics::loadFromCSV(const std::string& filename) {
         std::getline(ss, cell, ',');
         params.theta = std::stod(cell);
         
-        // Parse joint type
         std::getline(ss, cell, ',');
         if (cell == "R" || cell == "r") {
             params.type = JointType::REVOLUTE;
@@ -153,18 +151,16 @@ Matrix4d DHKinematics::computeDHMatrix(double a, double alpha, double d, double 
 VectorXd DHKinematics::extractPose(const Matrix4d& transform) const {
     VectorXd pose(6);
     
-    // Position
     pose(0) = transform(0, 3);
     pose(1) = transform(1, 3);
     pose(2) = transform(2, 3);
     
-    // Orientation (Euler angles ZYX)
     Matrix3d R = transform.block<3, 3>(0, 0);
     Vector3d euler = rotationMatrixToEulerAngles(R);
     
-    pose(3) = euler(0); // alpha (yaw)
-    pose(4) = euler(1); // beta (pitch)
-    pose(5) = euler(2); // gamma (roll)
+    pose(3) = euler(0);
+    pose(4) = euler(1);
+    pose(5) = euler(2);
     
     return pose;
 }
@@ -172,12 +168,10 @@ VectorXd DHKinematics::extractPose(const Matrix4d& transform) const {
 Matrix4d DHKinematics::poseToTransform(const VectorXd& pose) const {
     Matrix4d transform = Matrix4d::Identity();
     
-    // Position
     transform(0, 3) = pose(0);
     transform(1, 3) = pose(1);
     transform(2, 3) = pose(2);
     
-    // Orientation
     Vector3d euler(pose(3), pose(4), pose(5));
     Matrix3d R = eulerAnglesToRotationMatrix(euler);
     transform.block<3, 3>(0, 0) = R;
@@ -188,7 +182,6 @@ Matrix4d DHKinematics::poseToTransform(const VectorXd& pose) const {
 Vector3d rotationMatrixToEulerAngles(const Matrix3d& R) {
     Vector3d euler;
     
-    // Check for gimbal lock
     if (abs(R(2, 0)) >= 1.0) {
         euler(1) = -M_PI/2 * R(2, 0);
         euler(0) = atan2(-R(0, 1), -R(0, 2));
@@ -203,9 +196,9 @@ Vector3d rotationMatrixToEulerAngles(const Matrix3d& R) {
 }
 
 Matrix3d eulerAnglesToRotationMatrix(const Vector3d& euler) {
-    double alpha = euler(0); // yaw (Z)
-    double beta = euler(1);  // pitch (Y)
-    double gamma = euler(2); // roll (X)
+    double alpha = euler(0);
+    double beta = euler(1);
+    double gamma = euler(2);
     
     Matrix3d R;
     R = AngleAxisd(alpha, Vector3d::UnitZ()) *
@@ -245,4 +238,4 @@ std::vector<DHParameters> generateRandomDHParameters(int num_links) {
     return params;
 }
 
-} // namespace dh_kinematics
+}
