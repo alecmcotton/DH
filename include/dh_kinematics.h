@@ -29,8 +29,11 @@ public:
                           int max_iterations = 100) const;
     
     Eigen::MatrixXd jacobian(const Eigen::VectorXd& joint_values,
+
                            double delta = 1e-6) const;
-    double manipulability(const Eigen::VectorXd& joint_values) const;
+    double computeManipulability(const Eigen::VectorXd& joint_values) const;
+
+    Eigen::VectorXd rotateAboutFlangeX(const Eigen::VectorXd& pose, double zeta_degrees) const;
     
     int getNumActuatedJoints() const;
     const std::vector<DHParameters>& getDHParameters() const;
