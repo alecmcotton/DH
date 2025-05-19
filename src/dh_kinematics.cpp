@@ -245,4 +245,15 @@ Eigen::Matrix4d DHKinematics::computeFlangePoseFromConstraint(
     return flange_pose;
 }
 
-} // namespace dh_kinematics
+double DHKinematics::computeManipulability(const Eigen::VectorXd& joint_values) const {
+    Eigen::MatrixXd J = jacobian(joint_values);
+    Eigen::MatrixXd JJt = J * J.transpose();
+    double det = JJt.determinant();
+
+    if (det < 0) return 0.0;
+
+    return std::sqrt(det);
+}
+
+
+}

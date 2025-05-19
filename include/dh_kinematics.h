@@ -30,6 +30,7 @@ public:
     
     Eigen::MatrixXd jacobian(const Eigen::VectorXd& joint_values,
                            double delta = 1e-6) const;
+    double manipulability(const Eigen::VectorXd& joint_values) const;
     
     int getNumActuatedJoints() const;
     const std::vector<DHParameters>& getDHParameters() const;
