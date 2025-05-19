@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdh_kinematics_lib.a CMakeFiles/dh_kinematics_lib.dir/src/dh_kinematics.cpp.o
+/usr/bin/ranlib libdh_kinematics_lib.a
