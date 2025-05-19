@@ -259,22 +259,17 @@ Eigen::VectorXd dh_kinematics::DHKinematics::rotateAboutFlangeX(const Eigen::Vec
     assert(pose.size() == 6 && "Pose must be of size 6: x, y, z, alpha, beta, gamma");
 
     Eigen::Vector3d position = pose.head<3>();
-    Eigen::Vector3d euler_angles = pose.tail<3>();  // Assuming XYZ convention (alpha, beta, gamma)
+    Eigen::Vector3d euler_angles = pose.tail<3>();
 
-    // Convert Euler angles to rotation matrix
     Eigen::Matrix3d R = eulerAnglesToRotationMatrix(euler_angles);
 
-    // Create rotation around the local X-axis (flange frame)
     double zeta_rad = zeta_degrees * M_PI / 180.0;
     Eigen::Matrix3d R_zeta = Eigen::AngleAxisd(zeta_rad, Eigen::Vector3d::UnitX()).toRotationMatrix();
 
-    // Apply the rotation in the local frame
     Eigen::Matrix3d R_new = R * R_zeta;
 
-    // Convert back to Euler angles
     Eigen::Vector3d new_euler_angles = rotationMatrixToEulerAngles(R_new);
 
-    // Combine with original position
     Eigen::VectorXd new_pose(6);
     new_pose.head<3>() = position;
     new_pose.tail<3>() = new_euler_angles;
