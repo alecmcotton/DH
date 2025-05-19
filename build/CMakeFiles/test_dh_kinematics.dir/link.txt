@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/test_dh_kinematics.dir/tests/test_dh_kinematics.cpp.o -o test_dh_kinematics  libdh_kinematics.a 
