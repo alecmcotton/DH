@@ -1,21 +1,31 @@
 # DH Kinematics Library
 
-A C++ library with Python bindings for forward and inverse kinematics using Denavit-Hartenberg parameters.
+A C++/Python library for robotic manipulator kinematics using Denavit-Hartenberg (DH) parameters with pybind11 Python bindings.
 
 ## Features
+- **Complete DH Implementation**:
+  - Forward and inverse kinematics
+  - Jacobian computation
+  - Singularity detection via manipulability measure
+  - Support for revolute, prismatic, and fixed joints
+- **Python Bindings**:
+  - Full Python interface via pybind11
+  - Numpy array compatibility
+  - Clean Pythonic API
+- **Advanced Functionality**:
+  - Tool flange pose computation
+  - Local frame rotations
+  - Random robot generation
 
-- Load DH parameters from CSV files
-- Forward kinematics computation
-- Inverse kinematics using Newton-Raphson method
-- Numerical Jacobian computation
-- Comprehensive test suite
+## Installation
+### Prerequisites
+- Eigen3 (≥3.3)
+- pybind11
+- C++17 compiler
+- Python 3.6+
 
-## Building
-
-### C++ Library
-
+### Build Instructions
 ```bash
-mkdir build
-cd build
-cmake ..
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make
